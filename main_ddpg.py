@@ -70,8 +70,8 @@ gamma = 0.99
 tau = 0.005 
 actor_lr = 0.001
 critic_lr = 0.002
-batch_size = 64
-memory_size = 20000
+batch_size = 64 # This is B, batch size of the replay samples.
+memory_size = 20000 # This is N, the maximum capacity of the replay buffer, which limits how much past experience the agent can remember. used in replay_buffer = deque(maxlen=memory_size)
 
 
 actor = build_actor(state_size, action_size, action_limit)
@@ -129,7 +129,7 @@ def train():
         return
 
 
-    minibatch = random.sample(replay_buffer, batch_size)
+    minibatch = random.sample(replay_buffer, batch_size) #Sample random minibatch of size B from R
     states, actions, rewards, next_states, dones = zip(*minibatch)
 
    
@@ -158,7 +158,7 @@ def train():
     # Train actor
     with tf.GradientTape() as tape:
         actions_pred = actor(states)
-        actor_loss = -tf.reduce_mean(critic([states, actions_pred]))
+        actor_loss = -tf.reduce_mean(critic([states, actions_pred])) # this is J, refers to the objective function the actor tries to maximize: the expected Q-value of the actions it takes. minimizing -J, which is the same as maximizing J.
     actor_grads = tape.gradient(actor_loss, actor.trainable_variables)
     actor_optimizer.apply_gradients(zip(actor_grads, actor.trainable_variables))
     actor_losses.append(actor_loss.numpy())

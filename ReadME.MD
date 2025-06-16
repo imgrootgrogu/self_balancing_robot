@@ -113,7 +113,7 @@ Ensure this file is in the same directory as the Python scripts.
 ---
 
 ### Directory Structure
-
+```text
 /self_balancing_robot/
     ├── meshes/
     |── urdf/

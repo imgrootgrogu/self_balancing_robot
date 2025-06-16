@@ -2,7 +2,7 @@
 
 This repository contains implementations of three reinforcement learning algorithms for balancing a robot in the PyBullet simulation environment. The available algorithms are:
 - Q-Learning (`main_q.py`)
-- Deep Q-Learning (DQN)** (`main_dqn.py`)
+- Deep Q-Learning (DQN) (`main_dqn.py`)
 - Deep Deterministic Policy Gradient (DDPG) (`main_ddpg.py`)
 
 ### Prerequisites

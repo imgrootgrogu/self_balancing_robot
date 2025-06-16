@@ -112,7 +112,7 @@ Ensure this file is in the same directory as the Python scripts.
 
 ---
 
-### Directory Structure
+## Directory Structure
 ```text
 /self_balancing_robot/
     ├── meshes/
@@ -128,6 +128,7 @@ Ensure this file is in the same directory as the Python scripts.
     ├── test_q.py (test q_table)
     ├── test_dqn (test dqn model)
     ├── test_ddpg (test actor_model_DDPG model)
+
 
 ### Test the trained models
 1. Q-Learning:
